@@ -5,6 +5,7 @@ const config = require("./config/config");
 
 // routes
 const userRoutes = require("./routes/userRoutes");
+const teamRoutes = require("./routes/teamRoutes");
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use("/api/user", userRoutes.routes);
+app.use("/api/team", teamRoutes.routes);
 
 // Start the server
 app.listen(config.port, () =>

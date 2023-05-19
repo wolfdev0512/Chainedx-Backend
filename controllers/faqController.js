@@ -58,7 +58,7 @@ const getAllUsers = async (req, res, next) => {
 const getUser = async (req, res, next) => {
   try {
     const { wallet } = req.params;
-    console.log("Getting user= %s", wallet);
+    console.log("Getting employee= %s", wallet);
 
     const usersRef = firestore.collection("users");
 
@@ -84,7 +84,7 @@ const getUser = async (req, res, next) => {
 const updateUser = async (req, res, next) => {
   try {
     const { id } = req.params;
-    console.log("Updating user= %s", id);
+    console.log("Updating employee= %s", id);
 
     const { name, email, profile, wallet, level } = req.body;
     const file = req.file;
@@ -147,7 +147,7 @@ const updateUser = async (req, res, next) => {
 const deleteUser = async (req, res, next) => {
   try {
     const { id } = req.params;
-    console.log("Deleting user= %s", id);
+    console.log("Deleting employee= %s", id);
     const docRef = firestore.collection("users").doc(id);
     const doc = await docRef.get();
     if (!doc.exists) {
