@@ -127,7 +127,7 @@ const updateTeam = async (req, res, next) => {
       await docRef.update(updateData);
       const updatedDoc = await docRef.get();
       const team = updatedDoc.data();
-      res.json({ user: team, id: updatedDoc.id });
+      res.json({ team: team, id: updatedDoc.id });
     }
   } catch (error) {
     console.error(error);
