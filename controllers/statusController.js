@@ -1,9 +1,9 @@
-const { firestore, storage } = require("../config/firebase");
+const { firestore } = require("../config/firebase");
 
 const getStatus = async (req, res, next) => {
   try {
     const { id } = req.params;
-    console.log("Getting Faq= %s", id);
+    console.log("Getting Status= %s", id);
 
     const docRef = firestore.collection("status").doc(id);
     const doc = await docRef.get();
@@ -23,12 +23,19 @@ const updateStatus = async (req, res, next) => {
     const { id } = req.params;
     console.log("Updating Status= %s", id);
 
-    const { buyToken, docs, faq, team } = req.body;
+    const { buyToken, docs, faq, team, video, whitepaper } = req.body;
 
-    if (buyToken === null || docs === null || faq === null || team === null) {
+    if (
+      buyToken === null ||
+      docs === null ||
+      faq === null ||
+      team === null ||
+      video === null ||
+      whitepaper === null
+    ) {
       return res.status(400).send("Data are required");
     }
-    console.log(buyToken, docs, faq, team);
+    console.log(buyToken, docs, faq, team, video, whitepaper);
 
     const docRef = firestore.collection("status").doc(id);
     const doc = await docRef.get();
@@ -44,7 +51,10 @@ const updateStatus = async (req, res, next) => {
       updateData.docs = docs;
       updateData.faq = faq;
       updateData.team = team;
+      updateData.video = video;
+      updateData.whitepaper = whitepaper;
     }
+
     await docRef.update(updateData);
     const updatedDoc = await docRef.get();
     const status = updatedDoc.data();
