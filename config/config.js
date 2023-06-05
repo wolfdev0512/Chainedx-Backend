@@ -16,6 +16,7 @@ const {
   FB_AUTH_PROVIDER_X509_CERT_URL,
   FB_CLIENT_X509_CERT_URL,
   FB_UNIVERSE_DOMAIN,
+  FB_STORAGEBUCKET,
 } = process.env;
 
 // adding init assertions
@@ -31,6 +32,9 @@ assert(FB_TOKEN_URI, "Firebase token_uri is required");
 assert(FB_AUTH_PROVIDER_X509_CERT_URL, "Firebase auth_x509 is required");
 assert(FB_CLIENT_X509_CERT_URL, "Firebase client_x509 is required");
 assert(FB_UNIVERSE_DOMAIN, "Firebase universe_domain is required");
+assert(FB_STORAGEBUCKET, "Firebase storage_bucket is required");
+
+
 
 module.exports = {
   port: PORT,
@@ -48,4 +52,6 @@ module.exports = {
     client_x509_cert_url: FB_CLIENT_X509_CERT_URL,
     universe_domain: FB_UNIVERSE_DOMAIN,
   },
+
+  storage_bucket: FB_STORAGEBUCKET
 };

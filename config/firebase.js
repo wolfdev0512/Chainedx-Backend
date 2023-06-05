@@ -6,7 +6,7 @@ const serviceAccount = config.firebaseConfig;
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  storageBucket: "chainedx-9384d.appspot.com",
+  storageBucket: config.storage_bucket,
 });
 
 const firestore = admin.firestore();

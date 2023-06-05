@@ -49,7 +49,6 @@ const updateWhite = async (req, res, next) => {
       action: "read",
       expires: Date.now() + 7 * 86400 * 1000,
     });
-    console.log("publicUrl", publicUrl);
 
     const blobStream = blob.createWriteStream();
 
