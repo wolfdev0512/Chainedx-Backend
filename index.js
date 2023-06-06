@@ -11,6 +11,7 @@ const statusRoutes = require("./routes/statusRoutes");
 const timerRoutes = require("./routes/timerRoutes");
 const whiteRoutes = require("./routes/whiteRoutes");
 const docsRoutes = require("./routes/docsRoutes");
+const videoRoutes = require("./routes/videoRoutes");
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use("/api/status", statusRoutes.routes);
 app.use("/api/timer", timerRoutes.routes);
 app.use("/api/white", whiteRoutes.routes);
 app.use("/api/docs", docsRoutes.routes);
+app.use("/api/video", videoRoutes.routes);
 
 // Start the server
 app.listen(config.port, () =>
